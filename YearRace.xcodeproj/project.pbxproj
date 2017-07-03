@@ -17,6 +17,7 @@
 		B82A24D11D0325C9009E4A73 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82A24D01D0325C9009E4A73 /* WebViewController.swift */; };
 		B871AD851CF54B9E0033CE63 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B871AD841CF54B9E0033CE63 /* ViewController2.swift */; };
 		B8B61DCF1D0785A800A28775 /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B61DCE1D0785A800A28775 /* DirectionsViewController.swift */; };
+		B8BC3ED01F0ACFB600186FF5 /* UnlockFeaturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BC3ECF1F0ACFB500186FF5 /* UnlockFeaturesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		B82A24D01D0325C9009E4A73 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		B871AD841CF54B9E0033CE63 /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		B8B61DCE1D0785A800A28775 /* DirectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsViewController.swift; sourceTree = "<group>"; };
+		B8BC3ECF1F0ACFB500186FF5 /* UnlockFeaturesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnlockFeaturesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				B871AD841CF54B9E0033CE63 /* ViewController2.swift */,
 				B82A24D01D0325C9009E4A73 /* WebViewController.swift */,
 				B8B61DCE1D0785A800A28775 /* DirectionsViewController.swift */,
+				B8BC3ECF1F0ACFB500186FF5 /* UnlockFeaturesViewController.swift */,
 				B81785D41CF3CB9A007750F4 /* Main.storyboard */,
 				B81785D71CF3CB9A007750F4 /* Assets.xcassets */,
 				B81785D91CF3CB9A007750F4 /* LaunchScreen.storyboard */,
@@ -274,6 +277,7 @@
 				B81785D31CF3CB9A007750F4 /* ViewController.swift in Sources */,
 				B8B61DCF1D0785A800A28775 /* DirectionsViewController.swift in Sources */,
 				B81785D11CF3CB9A007750F4 /* AppDelegate.swift in Sources */,
+				B8BC3ED01F0ACFB600186FF5 /* UnlockFeaturesViewController.swift in Sources */,
 				B871AD851CF54B9E0033CE63 /* ViewController2.swift in Sources */,
 				B82A24D11D0325C9009E4A73 /* WebViewController.swift in Sources */,
 			);
