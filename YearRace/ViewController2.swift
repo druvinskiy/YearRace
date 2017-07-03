@@ -50,39 +50,46 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     var undoMonth = 1
     var undoDay = 1
     
+    var didUndo = false
+    
     @IBOutlet weak var monthLogoImageView: UIImageView!
     @IBOutlet weak var undoButton: UIButton!
     
     @IBAction func handleSwipes(_ sender: UISwipeGestureRecognizer) {
-        let translatedMonth = self.translateMonth(self.currentMonth)
-        let password:String = "\(translatedMonth) \(self.currentDay)"
-        
-        let alert: UIAlertController = UIAlertController(title: nil, message: "Please enter the password to activate the undo button.", preferredStyle: UIAlertControllerStyle.alert)
-        
-        let defaultAction: UIAlertAction = UIAlertAction(title: "Ok", style: .cancel) { (action) in
-            if let textField = alert.textFields?.first as UITextField? {
-                if textField.text == password {
-                    self.undoButton.isEnabled = true;
-                    self.undoButton.backgroundColor = UIColor.red
-                    
-                }
-                else {
-                    self.handleSwipes(sender)
+        if !didUndo {
+            let translatedMonth = self.translateMonth(self.currentMonth)
+            let password:String = "\(translatedMonth) \(self.currentDay)"
+            
+            let alert: UIAlertController = UIAlertController(title: nil, message: "Please enter the password to activate the undo button.", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let defaultAction: UIAlertAction = UIAlertAction(title: "Ok", style: .cancel) { (action) in
+                if let textField = alert.textFields?.first as UITextField? {
+                    if textField.text == password {
+                        self.undoButton.isEnabled = true
+                        self.undoButton.backgroundColor = UIColor.red
+                        
+                    }
+                    else {
+                        self.handleSwipes(sender)
+                    }
                 }
             }
+            
+            let cancel: UIAlertAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            
+            alert.addAction(defaultAction)
+            alert.addAction(cancel)
+            
+            alert.addTextField { (textField) in
+                textField.placeholder = "Password"
+                textField.isSecureTextEntry = true
+            }
+            
+            self.present(alert, animated: true, completion: nil)
         }
-        
-        let cancel: UIAlertAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-        
-        alert.addAction(defaultAction)
-        alert.addAction(cancel)
-        
-        alert.addTextField { (textField) in
-            textField.placeholder = "Password"
-            textField.isSecureTextEntry = true
+        else {
+            customError("You can only use the undo button once per game.")
         }
-        
-        self.present(alert, animated: true, completion: nil)
     }
     
     func translateMonth(_ month: Int) -> String {
@@ -105,6 +112,7 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
             label.text = "I will start with January \(firstDay)."
             day = firstDay
             currentDay = firstDay;
+            undoDay = firstDay
             
             let dayRow = convertValueToRow(day, typeOfValue: "day")
             picker.selectRow(dayRow, inComponent: 1, animated: false)
@@ -125,6 +133,7 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
             label.text = "I will start with December \(firstDay)."
             day = firstDay
             currentDay = firstDay;
+            undoDay = firstDay
             
             let dayRow = convertValueToRow(day, typeOfValue: "day")
             picker.selectRow(dayRow, inComponent: 1, animated: false)
@@ -146,8 +155,6 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
                 !( ( intMonth < currentMonth ) || ( day < currentDay ) ) &&
                 !( intMonth == currentMonth && day == currentDay ) )
             {
-                undoMonth = intMonth
-                undoDay = day
                 
                 if (intMonth == 12 && day == 31) {
                     theyWon = true
@@ -171,6 +178,9 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
                     
                     play(intMonth, day: day)
                     
+                    undoMonth = currentMonth
+                    undoDay = currentDay
+                    
                     currentMonth = intMonth
                     currentDay = day
                 }
@@ -190,7 +200,7 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
                 if (intMonth == 12 && day == 31)
                 {
                     won = true;
-                    presentWinner("I win!");
+                    presentWinner("I (the computer) win!");
                     return
                 }
             }
@@ -229,9 +239,6 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
                 !( ( intMonth > currentMonth ) || ( day > currentDay ) ) &&
                 !( intMonth == currentMonth && day == currentDay ) ) {
                 
-                undoMonth = intMonth
-                undoDay = day
-                
                 if (intMonth == 1 && day == 1)
                 {
                     theyWon = true
@@ -259,6 +266,10 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
                 }
                 
                 play(intMonth, day: day)
+                
+                undoMonth = currentMonth
+                undoDay = currentDay
+                
                 currentMonth = intMonth
                 currentDay = day
                 
@@ -504,11 +515,31 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     }
     
     @IBAction func undoButtonTapped(_ sender: Any) {
-        if (currentMonth == 1 && currentDay == 1) || (currentMonth == 12 && currentDay == 31) {
-            customError("You have not made any moves yet")
+        if (currentMonth == 1 && currentDay == 1) || (currentMonth == 12 && currentDay == 31) || label.text?.range(of: "I will start with") != nil {
+            customError("You have not made any moves yet.")
         }
         else {
+            label.text = "My last move was \(translateMonth(undoMonth)) \(undoDay)."
             
+            currentMonth = undoMonth
+            currentDay = undoDay
+            
+            // Select the date's rows in the view
+            let monthRow = convertValueToRow(undoMonth, typeOfValue: "month")
+            let dayRow = convertValueToRow(undoDay, typeOfValue: "day")
+            
+            picker.selectRow(monthRow, inComponent: 0, animated: true)
+            picker.selectRow(dayRow, inComponent: 1, animated: true)
+            
+            self.pickerView(picker, didSelectRow: monthRow, inComponent: 0)
+            self.pickerView(picker, didSelectRow: dayRow, inComponent: 1)
+            
+            monthLogoImageView.image = UIImage(named: self.month)
+            
+            self.undoButton.isEnabled = false
+            self.undoButton.backgroundColor = UIColor.lightGray
+            
+            didUndo = true
         }
     }
     
