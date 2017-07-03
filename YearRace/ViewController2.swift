@@ -60,6 +60,8 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
             if let textField = alert.textFields?.first as UITextField? {
                 if textField.text == password {
                     self.undoButton.isEnabled = true;
+                    self.undoButton.backgroundColor = UIColor.red
+                    
                 }
                 else {
                     self.handleSwipes(sender)
@@ -475,6 +477,10 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
             if (debugging) {print("\(month) \(day)")}
             getJan1()
         }
+    }
+    
+    @IBAction func undoButtonTapped(_ sender: Any) {
+        
     }
     
     override func didReceiveMemoryWarning() {
