@@ -48,6 +48,37 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     var day = 1
     
     @IBOutlet weak var monthLogoImageView: UIImageView!
+    @IBOutlet weak var undoButton: UIButton!
+    
+    @IBAction func handleSwipes(_ sender: UISwipeGestureRecognizer) {
+        let translatedMonth = self.translateMonth(self.currentMonth)
+        let password:String = "\(translatedMonth) \(self.currentDay)"
+        
+        let alert: UIAlertController = UIAlertController(title: nil, message: "Please enter the password to activate the undo button.", preferredStyle: UIAlertControllerStyle.alert)
+        
+        let defaultAction: UIAlertAction = UIAlertAction(title: "Ok", style: .cancel) { (action) in
+            if let textField = alert.textFields?.first as UITextField? {
+                if textField.text == password {
+                    self.undoButton.isEnabled = true;
+                }
+                else {
+                    self.handleSwipes(sender)
+                }
+            }
+        }
+        
+        let cancel: UIAlertAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        
+        alert.addAction(defaultAction)
+        alert.addAction(cancel)
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Password"
+            textField.isSecureTextEntry = true
+        }
+        
+        self.present(alert, animated: true, completion: nil)
+    }
     
     func translateMonth(_ month: Int) -> String {
         if (1 <= month && month <= 12) {

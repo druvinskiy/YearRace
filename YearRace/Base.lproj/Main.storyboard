@@ -50,12 +50,16 @@
                             </label>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="January" translatesAutoresizingMaskIntoConstraints="NO" id="kfl-JY-44I">
                                 <rect key="frame" x="258" y="426" width="249" height="148"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="249" id="Nwb-VQ-bHa"/>
                                     <constraint firstAttribute="height" constant="148" id="oby-KC-cq7"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="GMr-da-tAb" appends="YES" id="E4C-1Y-jEb"/>
+                                </connections>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlZ-zj-dDU">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FlZ-zj-dDU">
                                 <rect key="frame" x="365" y="323" width="38" height="30"/>
                                 <state key="normal" title="Undo"/>
                             </button>
@@ -80,11 +84,17 @@
                         <outlet property="label" destination="G7f-mP-UUo" id="bCy-rl-iZ6"/>
                         <outlet property="monthLogoImageView" destination="kfl-JY-44I" id="brS-06-wfJ"/>
                         <outlet property="picker" destination="3oG-V0-kL7" id="4y2-xc-qNQ"/>
+                        <outlet property="undoButton" destination="FlZ-zj-dDU" id="MUJ-kp-MAy"/>
                         <segue destination="nBP-He-0Y1" kind="unwind" identifier="defaultScreen" unwindAction="unwindToMainMenu:" id="IaP-W7-gE8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XdI-Iw-zQB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="nBP-He-0Y1" userLabel="Exit" sceneMemberID="exit"/>
+                <swipeGestureRecognizer direction="right" id="GMr-da-tAb">
+                    <connections>
+                        <action selector="handleSwipes:" destination="cau-Vb-RJ9" id="0qX-6X-ke3"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2296" y="421"/>
         </scene>
@@ -135,7 +145,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to YearRace" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0u9-v2-NkJ">
-                                <rect key="frame" x="201" y="67" width="366" height="36"/>
+                                <rect key="frame" x="201" y="111" width="366" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="366" id="O6M-cW-BYx"/>
                                 </constraints>
@@ -174,7 +184,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Race with the computer to be the first to reach the end of the year (or the beginning)!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWk-m4-ncT">
-                                <rect key="frame" x="220" y="96" width="327" height="86"/>
+                                <rect key="frame" x="220" y="140" width="327" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="327" id="AuR-Lh-Thm"/>
                                 </constraints>
