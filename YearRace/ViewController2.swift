@@ -47,6 +47,9 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     var intMonth = 1
     var day = 1
     
+    var undoMonth = 1
+    var undoDay = 1
+    
     @IBOutlet weak var monthLogoImageView: UIImageView!
     @IBOutlet weak var undoButton: UIButton!
     
@@ -143,6 +146,9 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
                 !( ( intMonth < currentMonth ) || ( day < currentDay ) ) &&
                 !( intMonth == currentMonth && day == currentDay ) )
             {
+                undoMonth = intMonth
+                undoDay = day
+                
                 if (intMonth == 12 && day == 31) {
                     theyWon = true
                     presentWinner("Well done - you win!")
@@ -223,6 +229,9 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
                 !( ( intMonth > currentMonth ) || ( day > currentDay ) ) &&
                 !( intMonth == currentMonth && day == currentDay ) ) {
                 
+                undoMonth = intMonth
+                undoDay = day
+                
                 if (intMonth == 1 && day == 1)
                 {
                     theyWon = true
@@ -299,6 +308,15 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
                 wrongDirectionError("You must pick an earlier date than \(translateMonth ( currentMonth ) ) \(currentDay)." )
             }
         }
+    }
+    
+    func customError(_ message: String) {
+        let alert:UIAlertController = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let action: UIAlertAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil)
+        
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func wrongDirectionError(_ message: String) {
@@ -444,6 +462,9 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
             currentMonth = 1
             currentDay = 1
             
+            undoMonth = 1
+            undoDay = 1
+            
             month = "January"
             intMonth = 1
             day = 1
@@ -457,6 +478,9 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
             
             currentMonth = 12
             currentDay = 31
+            
+            undoMonth = 12
+            undoDay = 31
             
             month = "December"
             intMonth = 12
@@ -480,7 +504,12 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     }
     
     @IBAction func undoButtonTapped(_ sender: Any) {
-        
+        if (currentMonth == 1 && currentDay == 1) || (currentMonth == 12 && currentDay == 31) {
+            customError("You have not made any moves yet")
+        }
+        else {
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {
