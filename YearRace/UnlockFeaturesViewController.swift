@@ -12,17 +12,45 @@ class UnlockFeaturesViewController: UIViewController {
     
     @IBOutlet weak var undoPasswordTextField: UITextField!
     @IBOutlet weak var answerPasswordTextField: UITextField!
+    @IBOutlet weak var undoSwitch: UISwitch!
+    @IBOutlet weak var answerSwitch: UISwitch!
     
-    let correctUndoPassword = "undoPassword"
+    let correctUndoPassword = "87"
     let correctAnswerPassword = "answerPassword"
 
     @IBAction func submitButtonTapped(_ sender: Any) {
         let undoPassword = undoPasswordTextField.text
         let answerPassword = answerPasswordTextField.text
+        
+        if undoPassword == correctUndoPassword {
+            undoPasswordTextField.text = ""
+            undoSwitch.setOn(true, animated: true)
+            undoSwitch.isUserInteractionEnabled = true
+            undoControls[0] = true
+        }
+        
+        if answerPassword == correctAnswerPassword {
+            answerPasswordTextField.text = ""
+            answerSwitch.setOn(true, animated: true)
+            answerSwitch.isUserInteractionEnabled = true
+        }
+    }
+    
+    @IBAction func switchChanged(_ sender: UISwitch) {
+        sender.isUserInteractionEnabled = false
+        
+        if sender == undoSwitch {
+            undoControls[0] = false
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if undoControls[0] {
+            undoSwitch.setOn(true, animated: false)
+            undoSwitch.isUserInteractionEnabled = true
+        }
 
         // Do any additional setup after loading the view.
     }
