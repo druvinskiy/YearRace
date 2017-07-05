@@ -34,6 +34,8 @@ let maxDates:[Int] = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 var undoControls = [false, true]
 
+var showAnswerControls = false
+
 class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var label: UILabel!
@@ -54,6 +56,7 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     
     @IBOutlet weak var monthLogoImageView: UIImageView!
     @IBOutlet weak var undoButton: UIButton!
+    @IBOutlet weak var showAnswerButton: UIButton!
     
     func translateMonth(_ month: Int) -> String {
         if (1 <= month && month <= 12) {
@@ -430,11 +433,16 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         
         if !undoControls[0] {
             undoButton.backgroundColor = UIColor.lightGray
-            //undoButton.setTitleColor(UIColor.lightGray, for: UIControlState.normal)
         }
         else {
             undoButton.backgroundColor = UIColor(red:0.09, green:0.40, blue:1.00, alpha:1.0)
-            //undoButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        }
+        
+        if !showAnswerControls {
+            showAnswerButton.backgroundColor = UIColor.lightGray
+        }
+        else {
+            showAnswerButton.backgroundColor = UIColor.red
         }
     }
     
@@ -515,6 +523,12 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
             monthLogoImageView.image = UIImage(named: self.month)
             
             undoControls[1] = false
+        }
+    }
+    
+    @IBAction func showAnswerButtonTapped(_ sender: Any) {
+        if !showAnswerControls {
+            customError("The show answer button is currently locked. Please visit the Unlock Features page to unlock it.")
         }
     }
     

@@ -82,7 +82,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="undoButtonTapped:" destination="cau-Vb-RJ9" eventType="touchUpInside" id="Y5g-2u-OMS"/>
+                                    <action selector="showAnswerButtonTapped:" destination="cau-Vb-RJ9" eventType="touchUpInside" id="rRi-FK-Nn6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -110,6 +110,7 @@
                         <outlet property="label" destination="G7f-mP-UUo" id="bCy-rl-iZ6"/>
                         <outlet property="monthLogoImageView" destination="kfl-JY-44I" id="brS-06-wfJ"/>
                         <outlet property="picker" destination="3oG-V0-kL7" id="4y2-xc-qNQ"/>
+                        <outlet property="showAnswerButton" destination="QRq-Rk-Hsd" id="KRn-O2-MVa"/>
                         <outlet property="undoButton" destination="FlZ-zj-dDU" id="MUJ-kp-MAy"/>
                         <segue destination="nBP-He-0Y1" kind="unwind" identifier="defaultScreen" unwindAction="unwindToMainMenu:" id="IaP-W7-gE8"/>
                     </connections>
@@ -412,26 +413,26 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kaq-D4-dWC">
                                 <rect key="frame" x="304" y="489" width="160" height="30"/>
-                                <color key="backgroundColor" red="0.10196078431372549" green="0.43529411764705883" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Start">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="cau-Vb-RJ9" kind="show" identifier="gameScreen" id="jjm-0m-0uK"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFf-Yy-LcQ">
-                                <rect key="frame" x="304" y="444" width="160" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="K2u-pg-L5k"/>
-                                    <constraint firstAttribute="height" constant="30" id="cNk-x9-eoE"/>
-                                </constraints>
+                                <color key="backgroundColor" red="0.086274509799999996" green="0.40000000000000002" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Instructions">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Ock-Z5-oUw" kind="show" id="ktc-dR-YHD"/>
+                                    <segue destination="Ock-Z5-oUw" kind="show" id="lF7-Zc-sns"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFf-Yy-LcQ">
+                                <rect key="frame" x="304" y="444" width="160" height="30"/>
+                                <color key="backgroundColor" red="0.10196078431372549" green="0.43137254901960786" blue="0.019607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="K2u-pg-L5k"/>
+                                    <constraint firstAttribute="height" constant="30" id="cNk-x9-eoE"/>
+                                </constraints>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="cau-Vb-RJ9" kind="show" identifier="gameScreen" id="miD-pS-BYe"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which date do you want to race to?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXq-c9-RxG">
@@ -477,7 +478,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="YearRace" id="Q5I-lB-0hv"/>
                     <connections>
-                        <outlet property="startButton" destination="Kaq-D4-dWC" id="KZv-FI-jFm"/>
+                        <outlet property="startButton" destination="gFf-Yy-LcQ" id="fXy-A0-P41"/>
                         <segue destination="JSG-WN-9s0" kind="show" identifier="backdoor" id="Rbh-v3-IMf"/>
                     </connections>
                 </viewController>
@@ -511,6 +512,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Rbh-v3-IMf"/>
-        <segue reference="ktc-dR-YHD"/>
+        <segue reference="lF7-Zc-sns"/>
     </inferredMetricsTieBreakers>
 </document>

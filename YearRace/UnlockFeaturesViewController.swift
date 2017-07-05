@@ -33,6 +33,7 @@ class UnlockFeaturesViewController: UIViewController {
             answerPasswordTextField.text = ""
             answerSwitch.setOn(true, animated: true)
             answerSwitch.isUserInteractionEnabled = true
+            showAnswerControls = true
         }
     }
     
@@ -42,6 +43,9 @@ class UnlockFeaturesViewController: UIViewController {
         if sender == undoSwitch {
             undoControls[0] = false
         }
+        else if sender == answerSwitch {
+            showAnswerControls = false
+        }
     }
     
     override func viewDidLoad() {
@@ -50,6 +54,10 @@ class UnlockFeaturesViewController: UIViewController {
         if undoControls[0] {
             undoSwitch.setOn(true, animated: false)
             undoSwitch.isUserInteractionEnabled = true
+        }
+        else if showAnswerControls {
+            answerSwitch.setOn(true, animated: false)
+            answerSwitch.isUserInteractionEnabled = true
         }
 
         // Do any additional setup after loading the view.
