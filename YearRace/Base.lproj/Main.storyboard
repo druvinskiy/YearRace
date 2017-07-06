@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fsp-nJ-d6k">
-    <device id="ipad9_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
+    <device id="ipad12_9" orientation="landscape">
+        <adaptation id="splitview1_2"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -19,7 +19,7 @@
                         <viewControllerLayoutGuide type="bottom" id="4Sc-jP-Y0k"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="S3E-VE-aaH">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="678" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3oG-V0-kL7">
@@ -130,13 +130,13 @@
                         <viewControllerLayoutGuide type="bottom" id="qo3-5r-BuD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qWL-pg-UTH">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="678" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6qt-PJ-kZ3">
-                                <rect key="frame" x="100" y="261" width="568" height="502"/>
+                                <rect key="frame" x="100" y="261" width="478" height="502"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">The Rules: starting at January 1st, players take turns *either* increasing the number of the day, *or* the number of the month (but not both in any one turn). First one to land on December 31st wins. The Scam: in this case the pole positions are: 1/20, 2/21, 3/22, 4/23, 5/24, 6/25, 7/26, 8/27, 9/28, 10/29, and 11/30. No matter what the other player does, you'll always be able to hit one of these pole positions on your next turn. An easy way to remember the pole positions on calendar nim is to subtract the number of the month from the number of the day... you should always get 19.</mutableString>
+                                <string key="text">The Rules: starting at January 1st, players take turns *either* increasing the number of the day, *or* the number of the month (but not both in any one turn). First one to land on December 31st wins. The Scam: in this case the pole positions are: 1/20, 2/21, 3/22, 4/23, 5/24, 6/25, 7/26, 8/27, 9/28, 10/29, and 11/30. No matter what the other player does, you'll always be able to hit one of these pole positions on your next turn. An easy way to remember the pole positions on calendar nim is to subtract the number of the month from the number of the day... you should always get 19.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -163,11 +163,11 @@
                         <viewControllerLayoutGuide type="bottom" id="ghJ-VI-ejK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DuR-PB-sYM">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="678" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to YearRace" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0u9-v2-NkJ">
-                                <rect key="frame" x="201" y="111" width="366" height="36"/>
+                                <rect key="frame" x="156" y="111" width="366" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="366" id="O6M-cW-BYx"/>
                                 </constraints>
@@ -176,7 +176,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose the date you want to race to, and who's going first (you or the computer)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5FL-Jk-Vzk">
-                                <rect key="frame" x="238" y="184" width="291" height="64"/>
+                                <rect key="frame" x="193" y="184" width="291" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="I1x-qr-b9n"/>
                                     <constraint firstAttribute="width" constant="291" id="ry9-cI-Mx0"/>
@@ -186,7 +186,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From the starting date, go ahead to any date you want, but you can only change either the month or the day, not both." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zfr-nj-zeA">
-                                <rect key="frame" x="244" y="238" width="279" height="90"/>
+                                <rect key="frame" x="199" y="238" width="279" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="279" id="hZI-c1-bEU"/>
                                 </constraints>
@@ -195,7 +195,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3KL-J5-we1">
-                                <rect key="frame" x="208" y="314" width="351" height="103"/>
+                                <rect key="frame" x="163" y="314" width="351" height="103"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="351" id="0xl-h4-bQG"/>
                                     <constraint firstAttribute="height" constant="103" id="gB7-jk-M6d"/>
@@ -206,7 +206,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Race with the computer to be the first to reach the end of the year (or the beginning)!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWk-m4-ncT">
-                                <rect key="frame" x="220" y="140" width="327" height="42"/>
+                                <rect key="frame" x="175" y="140" width="327" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="327" id="AuR-Lh-Thm"/>
                                 </constraints>
@@ -245,11 +245,11 @@
                         <viewControllerLayoutGuide type="bottom" id="jcW-gm-UcK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="X9f-ag-goR">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="678" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the password that corresponds with the feature you want to unlock." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wP0-mg-Gm2">
-                                <rect key="frame" x="76" y="108" width="616" height="21"/>
+                                <rect key="frame" x="31" y="108" width="616" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="D2S-SY-aRS"/>
                                     <constraint firstAttribute="width" constant="616" id="ncs-j9-LSj"/>
@@ -321,7 +321,7 @@
                                 </connections>
                             </switch>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Car Puzzle" translatesAutoresizingMaskIntoConstraints="NO" id="o2E-Wn-oV9">
-                                <rect key="frame" x="180" y="446" width="408" height="290"/>
+                                <rect key="frame" x="135" y="446" width="408" height="290"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="408" id="NDe-GH-47x"/>
                                     <constraint firstAttribute="height" constant="290" id="c4G-Ls-72k"/>
@@ -370,7 +370,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="678" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who would you like to go first?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEG-ju-cWy">
@@ -409,7 +409,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kaq-D4-dWC">
-                                <rect key="frame" x="304" y="489" width="160" height="30"/>
+                                <rect key="frame" x="259" y="489" width="160" height="30"/>
                                 <color key="backgroundColor" red="0.086274509799999996" green="0.40000000000000002" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Instructions">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -419,7 +419,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFf-Yy-LcQ">
-                                <rect key="frame" x="304" y="444" width="160" height="30"/>
+                                <rect key="frame" x="259" y="444" width="160" height="30"/>
                                 <color key="backgroundColor" red="0.10196078431372549" green="0.43137254901960786" blue="0.019607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="K2u-pg-L5k"/>
@@ -439,7 +439,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBa-f2-UfQ">
-                                <rect key="frame" x="304" y="534" width="160" height="30"/>
+                                <rect key="frame" x="259" y="534" width="160" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Unlock Features">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
