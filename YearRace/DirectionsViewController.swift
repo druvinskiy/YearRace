@@ -15,16 +15,16 @@ class DirectionsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        /*self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
         let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(DirectionsViewController.handleSwipes(_:)))
         
         downSwipe.direction = .down
         downSwipe.numberOfTouchesRequired = 1
-        view.addGestureRecognizer(downSwipe)
+        view.addGestureRecognizer(downSwipe)*/
     }
     
-    func handleSwipes(_ sender: UISwipeGestureRecognizer) {
+    /*func handleSwipes(_ sender: UISwipeGestureRecognizer) {
         let alert: UIAlertController = UIAlertController(title: nil, message: "Welcome to the backdoor. Please enter the password.", preferredStyle: UIAlertControllerStyle.alert)
         
         let defaultAction: UIAlertAction = UIAlertAction(title: "Ok", style: .cancel) { (action) in
@@ -49,7 +49,7 @@ class DirectionsViewController: UIViewController {
         }
         
         self.present(alert, animated: true, completion: nil)
-    }
+    }*/
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

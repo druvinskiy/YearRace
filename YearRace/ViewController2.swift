@@ -530,6 +530,13 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         if !showAnswerControls {
             customError("The show answer button is currently locked. Please visit the Unlock Features page to unlock it.")
         }
+        else {
+            performSegue(withIdentifier: "showAnswer", sender: self)
+            
+            let backItem = UIBarButtonItem()
+            backItem.title = "Back"
+            navigationItem.backBarButtonItem = backItem
+        }
     }
     
     override func didReceiveMemoryWarning() {

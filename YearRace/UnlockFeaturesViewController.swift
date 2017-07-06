@@ -55,7 +55,8 @@ class UnlockFeaturesViewController: UIViewController {
             undoSwitch.setOn(true, animated: false)
             undoSwitch.isUserInteractionEnabled = true
         }
-        else if showAnswerControls {
+        
+        if showAnswerControls {
             answerSwitch.setOn(true, animated: false)
             answerSwitch.isUserInteractionEnabled = true
         }

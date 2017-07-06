@@ -113,17 +113,18 @@
                         <outlet property="showAnswerButton" destination="QRq-Rk-Hsd" id="KRn-O2-MVa"/>
                         <outlet property="undoButton" destination="FlZ-zj-dDU" id="MUJ-kp-MAy"/>
                         <segue destination="nBP-He-0Y1" kind="unwind" identifier="defaultScreen" unwindAction="unwindToMainMenu:" id="IaP-W7-gE8"/>
+                        <segue destination="JSG-WN-9s0" kind="show" identifier="showAnswer" id="8QK-Vj-gZT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XdI-Iw-zQB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="nBP-He-0Y1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2296" y="421"/>
+            <point key="canvasLocation" x="2016" y="380"/>
         </scene>
-        <!--Web View Controller-->
+        <!--Answer View Controller-->
         <scene sceneID="bFM-1J-BXp">
             <objects>
-                <viewController id="JSG-WN-9s0" customClass="WebViewController" customModule="YearRace" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JSG-WN-9s0" customClass="AnswerViewController" customModule="YearRace" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3zT-oo-pXG"/>
                         <viewControllerLayoutGuide type="bottom" id="qo3-5r-BuD"/>
@@ -132,27 +133,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aCd-bz-Gxr">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <color key="backgroundColor" red="0.28958413004875183" green="0.31462949514389038" blue="0.32950475811958313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6qt-PJ-kZ3">
+                                <rect key="frame" x="100" y="261" width="568" height="502"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">The Rules: starting at January 1st, players take turns *either* increasing the number of the day, *or* the number of the month (but not both in any one turn). First one to land on December 31st wins. The Scam: in this case the pole positions are: 1/20, 2/21, 3/22, 4/23, 5/24, 6/25, 7/26, 8/27, 9/28, 10/29, and 11/30. No matter what the other player does, you'll always be able to hit one of these pole positions on your next turn. An easy way to remember the pole positions on calendar nim is to subtract the number of the month from the number of the day... you should always get 19.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="aCd-bz-Gxr" secondAttribute="trailing" id="59g-rS-sPD"/>
-                            <constraint firstItem="aCd-bz-Gxr" firstAttribute="top" secondItem="qWL-pg-UTH" secondAttribute="top" id="RG1-gL-CFE"/>
-                            <constraint firstItem="aCd-bz-Gxr" firstAttribute="bottom" secondItem="qo3-5r-BuD" secondAttribute="top" id="TQk-07-rSg"/>
-                            <constraint firstItem="aCd-bz-Gxr" firstAttribute="leading" secondItem="qWL-pg-UTH" secondAttribute="leading" id="d7i-SG-PoV"/>
+                            <constraint firstItem="6qt-PJ-kZ3" firstAttribute="top" secondItem="3zT-oo-pXG" secondAttribute="bottom" constant="197" id="3T7-Du-zfV"/>
+                            <constraint firstItem="6qt-PJ-kZ3" firstAttribute="centerY" secondItem="qWL-pg-UTH" secondAttribute="centerY" id="9Tr-eN-USD"/>
+                            <constraint firstItem="6qt-PJ-kZ3" firstAttribute="leading" secondItem="qWL-pg-UTH" secondAttribute="leadingMargin" constant="80" id="OO7-aM-nkO"/>
+                            <constraint firstItem="6qt-PJ-kZ3" firstAttribute="centerX" secondItem="qWL-pg-UTH" secondAttribute="centerX" id="c6s-ja-iVJ"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="webView" destination="aCd-bz-Gxr" id="bYa-Zx-zGu"/>
-                        <segue destination="Ock-Z5-oUw" kind="show" identifier="webToDirections" id="Ow6-nR-ghr"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bO1-Nl-aPU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3012.5" y="420.703125"/>
+            <point key="canvasLocation" x="1096" y="1177"/>
         </scene>
         <!--Instructions-->
         <scene sceneID="c0R-D5-TOc">
@@ -231,13 +231,10 @@
                             <constraint firstItem="ghJ-VI-ejK" firstAttribute="top" secondItem="3KL-J5-we1" secondAttribute="bottom" constant="607" id="qnt-7f-OGd"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <segue destination="JSG-WN-9s0" kind="show" identifier="backdoor" id="Fqi-Hf-eCt"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7dC-1h-O3n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3739" y="421"/>
+            <point key="canvasLocation" x="3079" y="253"/>
         </scene>
         <!--Unlock Features-->
         <scene sceneID="0vO-g8-DYJ">
@@ -362,7 +359,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i62-JE-PyH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4387.5" y="420.703125"/>
+            <point key="canvasLocation" x="3880" y="-144"/>
         </scene>
         <!--YearRace-->
         <scene sceneID="tne-QT-ifu">
@@ -418,7 +415,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Ock-Z5-oUw" kind="show" id="lF7-Zc-sns"/>
+                                    <segue destination="Ock-Z5-oUw" kind="show" id="uCh-Iy-KiZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFf-Yy-LcQ">
@@ -448,7 +445,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ajT-va-PTN" kind="show" id="Lm4-ob-kUN"/>
+                                    <segue destination="ajT-va-PTN" kind="show" identifier="show" id="Lm4-ob-kUN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -479,12 +476,11 @@
                     <navigationItem key="navigationItem" title="YearRace" id="Q5I-lB-0hv"/>
                     <connections>
                         <outlet property="startButton" destination="gFf-Yy-LcQ" id="fXy-A0-P41"/>
-                        <segue destination="JSG-WN-9s0" kind="show" identifier="backdoor" id="Rbh-v3-IMf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1591" y="421"/>
+            <point key="canvasLocation" x="1176" y="-939"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="p2J-Dq-xoh">
@@ -502,7 +498,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3X-f6-DRe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="872" y="421"/>
+            <point key="canvasLocation" x="5" y="-356"/>
         </scene>
     </scenes>
     <resources>
@@ -510,8 +506,4 @@
         <image name="January" width="606" height="348"/>
         <image name="mainScreenLogo" width="453" height="258"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Rbh-v3-IMf"/>
-        <segue reference="lF7-Zc-sns"/>
-    </inferredMetricsTieBreakers>
 </document>
