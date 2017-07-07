@@ -430,12 +430,15 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         }
         
         startGame()
-        
+    }
+    
+    func startGame() {
         if !undoControls[0] {
             undoButton.backgroundColor = UIColor.lightGray
         }
         else {
             undoButton.backgroundColor = UIColor(red:0.09, green:0.40, blue:1.00, alpha:1.0)
+            undoControls[1] = true
         }
         
         if !showAnswerControls {
@@ -444,9 +447,7 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         else {
             showAnswerButton.backgroundColor = UIColor.red
         }
-    }
-    
-    func startGame() {
+        
         if (mode == "GetDec31") {
             self.title = "GetDec31"
             
@@ -523,6 +524,7 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
             monthLogoImageView.image = UIImage(named: self.month)
             
             undoControls[1] = false
+            undoButton.backgroundColor = UIColor.lightGray
         }
     }
     

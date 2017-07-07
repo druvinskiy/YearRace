@@ -17,8 +17,8 @@ class UnlockFeaturesViewController: UIViewController {
     
     let correctUndoPassword = "87"
     let correctAnswerPassword = "answerPassword"
-
-    @IBAction func submitButtonTapped(_ sender: Any) {
+    
+    @IBAction func checkButtonTapped(_ sender: UIBarButtonItem) {
         let undoPassword = undoPasswordTextField.text
         let answerPassword = answerPasswordTextField.text
         
@@ -64,6 +64,10 @@ class UnlockFeaturesViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
