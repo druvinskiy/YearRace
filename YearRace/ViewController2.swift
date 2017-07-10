@@ -166,7 +166,7 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
                 if (intMonth == 12 && day == 31)
                 {
                     won = true;
-                    presentWinner("I (the computer) win!");
+                    presentWinner("The computer wins!");
                     return
                 }
             }
