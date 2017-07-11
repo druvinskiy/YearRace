@@ -279,6 +279,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ajT-va-PTN" id="lqP-ZS-eFD"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Answer Button:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbe-H4-Cu4">
                                 <rect key="frame" x="291" y="511" width="186" height="21"/>
@@ -299,6 +302,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ajT-va-PTN" id="jda-vC-pjB"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Undo Button:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31M-r1-gmi">
                                 <rect key="frame" x="327" y="120" width="114" height="21"/>
@@ -378,6 +384,7 @@
                     <connections>
                         <outlet property="answerPasswordTextField" destination="gF4-1S-BX8" id="6jg-hK-kEr"/>
                         <outlet property="answerSwitch" destination="5TM-ox-7Uz" id="4Tq-tL-7AM"/>
+                        <outlet property="checkButton" destination="YSN-kl-xr0" id="Y4A-fP-fWs"/>
                         <outlet property="undoPasswordTextField" destination="12y-lV-FkC" id="xjA-ON-eMd"/>
                         <outlet property="undoSwitch" destination="ZDh-Z8-SJY" id="W1p-uF-UKk"/>
                     </connections>

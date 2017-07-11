@@ -14,9 +14,17 @@ class UnlockFeaturesViewController: UIViewController {
     @IBOutlet weak var answerPasswordTextField: UITextField!
     @IBOutlet weak var undoSwitch: UISwitch!
     @IBOutlet weak var answerSwitch: UISwitch!
+    @IBOutlet weak var checkButton: UIBarButtonItem!
     
     let correctUndoPassword = "87"
     let correctAnswerPassword = "50000"
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        checkButtonTapped(checkButton)
+        
+        return false
+    }
     
     @IBAction func checkButtonTapped(_ sender: UIBarButtonItem) {
         let undoPassword = undoPasswordTextField.text
