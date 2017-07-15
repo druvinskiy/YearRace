@@ -99,6 +99,9 @@
                                     <action selector="showAnswerButtonTapped:" destination="cau-Vb-RJ9" eventType="touchUpInside" id="rRi-FK-Nn6"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="CtZ-ec-Cuv">
+                                <rect key="frame" x="374" y="484" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -109,8 +112,10 @@
                             <constraint firstItem="QRq-Rk-Hsd" firstAttribute="top" secondItem="FlZ-zj-dDU" secondAttribute="bottom" constant="15" id="JHH-1T-15r"/>
                             <constraint firstItem="G7f-mP-UUo" firstAttribute="top" secondItem="QRq-Rk-Hsd" secondAttribute="bottom" constant="33" id="O7n-bC-Eei"/>
                             <constraint firstItem="QRq-Rk-Hsd" firstAttribute="centerX" secondItem="S3E-VE-aaH" secondAttribute="centerX" id="Oll-8l-Scr"/>
+                            <constraint firstItem="CtZ-ec-Cuv" firstAttribute="centerX" secondItem="S3E-VE-aaH" secondAttribute="centerX" id="QSO-YY-P6e"/>
                             <constraint firstItem="3oG-V0-kL7" firstAttribute="centerX" secondItem="S3E-VE-aaH" secondAttribute="centerX" id="SIC-Ht-h2X"/>
                             <constraint firstItem="FlZ-zj-dDU" firstAttribute="centerX" secondItem="S3E-VE-aaH" secondAttribute="centerX" id="cRE-3F-aUg"/>
+                            <constraint firstItem="CtZ-ec-Cuv" firstAttribute="top" secondItem="QRq-Rk-Hsd" secondAttribute="bottom" constant="34" id="hmY-Pk-WK9"/>
                             <constraint firstItem="OHa-DG-Wgw" firstAttribute="centerX" secondItem="S3E-VE-aaH" secondAttribute="centerX" id="y8R-nr-37j"/>
                             <constraint firstItem="OHa-DG-Wgw" firstAttribute="top" secondItem="3oG-V0-kL7" secondAttribute="bottom" constant="40" id="zHE-Ri-Ih9"/>
                             <constraint firstItem="FlZ-zj-dDU" firstAttribute="top" secondItem="OHa-DG-Wgw" secondAttribute="bottom" constant="15" id="zRL-sC-zlD"/>
@@ -118,6 +123,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="6Yh-0W-Cva"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="CtZ-ec-Cuv" id="CHc-hp-VO6"/>
                         <outlet property="label" destination="G7f-mP-UUo" id="bCy-rl-iZ6"/>
                         <outlet property="monthLogoImageView" destination="kfl-JY-44I" id="brS-06-wfJ"/>
                         <outlet property="picker" destination="3oG-V0-kL7" id="4y2-xc-qNQ"/>

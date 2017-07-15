@@ -40,6 +40,7 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var picker: UIPickerView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var currentMonth = 1
     var currentDay = 1
@@ -128,49 +129,57 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
                     return
                 }
                 else {
-                    if (day - intMonth == 19) {
-                        intMonth += 1
-                    }
-                    else {
-                        while (day - intMonth != 19) {
-                            if (day - intMonth > 19) {
-                                intMonth += 1
-                            }
-                            else if (day - intMonth < 19) {
-                                day += 1
+                    handleThinking(pausing: true)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1 ), execute: {
+                        // Put your code which should be executed with a delay here
+                        
+                        if (self.day - self.intMonth == 19) {
+                            self.intMonth += 1
+                        }
+                        else {
+                            while (self.day - self.intMonth != 19) {
+                                if (self.day - self.intMonth > 19) {
+                                    self.intMonth += 1
+                                }
+                                else if (self.day - self.intMonth < 19) {
+                                    self.day += 1
+                                }
                             }
                         }
-                    }
-                    
-                    play(intMonth, day: day)
-                    
-                    undoMonth = currentMonth
-                    undoDay = currentDay
-                    
-                    currentMonth = intMonth
-                    currentDay = day
-                }
-                
-                // Select the date's rows in the view
-                let monthRow = convertValueToRow(intMonth, typeOfValue: "month")
-                let dayRow = convertValueToRow(day, typeOfValue: "day")
-                
-                picker.selectRow(monthRow, inComponent: 0, animated: false)
-                picker.selectRow(dayRow, inComponent: 1, animated: false)
-                
-                self.pickerView(picker, didSelectRow: monthRow, inComponent: 0)
-                self.pickerView(picker, didSelectRow: dayRow, inComponent: 1)
-                
-                monthLogoImageView.image = UIImage(named: self.month)
-                
-                if (intMonth == 12 && day == 31)
-                {
-                    won = true;
-                    presentWinner("The computer wins!");
-                    return
+                        
+                        self.play(self.intMonth, day: self.day)
+                        
+                        self.undoMonth = self.currentMonth
+                        self.undoDay = self.currentDay
+                        
+                        self.currentMonth = self.intMonth
+                        self.currentDay = self.day
+                        
+                        
+                        // Select the date's rows in the view
+                        let monthRow = self.convertValueToRow(self.intMonth, typeOfValue: "month")
+                        let dayRow = self.convertValueToRow(self.day, typeOfValue: "day")
+                        
+                        self.picker.selectRow(monthRow, inComponent: 0, animated: false)
+                        self.picker.selectRow(dayRow, inComponent: 1, animated: false)
+                        
+                        self.pickerView(self.picker, didSelectRow: monthRow, inComponent: 0)
+                        self.pickerView(self.picker, didSelectRow: dayRow, inComponent: 1)
+                        
+                        self.monthLogoImageView.image = UIImage(named: self.month)
+                        
+                        self.handleThinking(pausing: false)
+                        
+                        if (self.intMonth == 12 && self.day == 31)
+                        {
+                            won = true;
+                            self.presentWinner("The computer wins!");
+                            return
+                        }
+                    })
                 }
             }
-                
             else if ( ( ( intMonth != currentMonth ) && ( day != currentDay ) ) &&
                 ( ( intMonth < currentMonth) ) )
             {
@@ -210,57 +219,66 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
                     theyWon = true
                     presentWinner("Well done - you win!")
                     return
-                }
-                
-                if (day == intMonth)
-                {
-                    intMonth -= 1
-                }
-                else
-                {
-                    while (day != intMonth)
-                    {
-                        if (day < intMonth)
+                } else {
+                    handleThinking(pausing: true)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1 ), execute: {
+                        // Put your code which should be executed with a delay here
+                        
+                        if (self.day == self.intMonth)
                         {
-                            intMonth -= 1
+                            self.intMonth -= 1
                         }
-                        else if (day > intMonth)
+                        else
                         {
-                            day -= 1
+                            while (self.day != self.intMonth)
+                            {
+                                if (self.day < self.intMonth)
+                                {
+                                    self.intMonth -= 1
+                                }
+                                else if (self.day > self.intMonth)
+                                {
+                                    self.day -= 1
+                                }
+                            }
                         }
-                    }
-                }
-                
-                play(intMonth, day: day)
-                
-                undoMonth = currentMonth
-                undoDay = currentDay
-                
-                currentMonth = intMonth
-                currentDay = day
-                
-                if (debugging) {
-                    print("Highlighting row \(12 - intMonth) in month component, where intMonth is \(intMonth)")
-                    print("Highlighting row \(maxDates[monthNames.index(of: month)!] - day) in day component")
-                }
-                
-                // Select the date's rows in the view
-                let monthRow = convertValueToRow(intMonth, typeOfValue: "month")
-                let dayRow = convertValueToRow(day, typeOfValue: "day")
-                
-                picker.selectRow(monthRow, inComponent: 0, animated: false)
-                picker.selectRow(dayRow, inComponent: 1, animated: false)
-                
-                self.pickerView(picker, didSelectRow: monthRow, inComponent: 0)
-                self.pickerView(picker, didSelectRow: dayRow, inComponent: 1)
-                
-                monthLogoImageView.image = UIImage(named: self.month)
-                
-                if (intMonth == 1 && day == 1)
-                {
-                    won = true
-                    presentWinner("I win!")
-                    return
+                        
+                        self.play(self.intMonth, day: self.day)
+                        
+                        self.undoMonth = self.currentMonth
+                        self.undoDay = self.currentDay
+                        
+                        self.currentMonth = self.intMonth
+                        self.currentDay = self.day
+                        
+                        if (debugging) {
+                            print("Highlighting row \(12 - self.intMonth) in month component, where intMonth is \(self.intMonth)")
+                            print("Highlighting row \(maxDates[monthNames.index(of: self.month)!] - self.day) in day component")
+                        }
+                        
+                        // Select the date's rows in the view
+                        let monthRow = self.convertValueToRow(self.intMonth, typeOfValue: "month")
+                        let dayRow = self.convertValueToRow(self.day, typeOfValue: "day")
+                        
+                        self.picker.selectRow(monthRow, inComponent: 0, animated: false)
+                        self.picker.selectRow(dayRow, inComponent: 1, animated: false)
+                        
+                        self.pickerView(self.picker, didSelectRow: monthRow, inComponent: 0)
+                        self.pickerView(self.picker, didSelectRow: dayRow, inComponent: 1)
+                        
+                        self.monthLogoImageView.image = UIImage(named: self.month)
+                        
+                        self.handleThinking(pausing: false)
+                        
+                        if (self.intMonth == 1 && self.day == 1)
+                        {
+                            won = true
+                            self.presentWinner("I win!")
+                            return
+                        }
+
+                    })
                 }
             }
             else if ( ( ( intMonth != currentMonth ) && ( day != currentDay ) ) &&
@@ -484,14 +502,26 @@ class ViewController2: UIViewController, UIPickerViewDataSource, UIPickerViewDel
         }
     }
     
-    @IBAction func onButtonTapped(_ sender: AnyObject) {
-        if (mode == "GetDec31")
-        {
-            getDec31()
+    func handleThinking(pausing: Bool) {
+        if pausing {
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            label.isHidden = true
+            activityIndicator.startAnimating()
         }
         else {
-            if (debugging) {print("\(month) \(day)")}
-            getJan1()
+            UIApplication.shared.endIgnoringInteractionEvents()
+            self.label.isHidden = false
+            self.activityIndicator.stopAnimating()
+        }
+    }
+    
+    @IBAction func onButtonTapped(_ sender: AnyObject) {
+        if (self.mode == "GetDec31") {
+            self.getDec31()
+        }
+        else {
+            if (debugging) {print("\(self.month) \(self.day)")}
+            self.getJan1()
         }
     }
     
